@@ -27,6 +27,13 @@ before_action :authenticate_user!, only: [:new, :create, :destroy]
   end
 
   def destroy
+    @post = Post.find_by(id: params[:id])
+
+    if @post.user_id == current_user.id
+      @post.destroy
+      flash[:notice] = "投稿を削除しました。"
+    end
+    redirect_to posts_path
   end
 
   def post_params
