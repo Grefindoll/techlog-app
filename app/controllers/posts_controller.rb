@@ -22,6 +22,7 @@ before_action :authenticate_user!, only: [:new, :create, :destroy]
   end
 
   def show
+    @post = Post.find_by(id: params[:id])
   end
 
   def destroy
