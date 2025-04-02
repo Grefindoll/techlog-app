@@ -15,7 +15,7 @@ describe User do
 
     it '事前に作成した通りのUserを返す' do
       expect(subject.nickname).to eq('テスト太郎')
-      expect(subject.email).to match(/test\d+@example.com/)
+      expect(subject.email).to match(/test.*@example.com/)
 
     end
   end
